@@ -2,12 +2,9 @@ variable "region" {
     default = "us-east-2"
 }
 
-variable "ec2_count" {
-    default = 2
-}
-
 variable "key_name" {
-    default = "moshe-east-2"
+  description = "name of ssh key to attach to hosts"
+  default = "moshe-east-2"
 }
 
 variable "vpc_cidr" {

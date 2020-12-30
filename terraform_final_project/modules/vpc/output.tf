@@ -1,4 +1,4 @@
-output "vpc_vpc_id" {
+output "vpc_id" {
   description = "ARN of the bucket"
   value       = aws_vpc.main.id
 }
