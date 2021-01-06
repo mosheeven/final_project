@@ -1,16 +1,14 @@
 output "vpc_id" {
-  description = "ARN of the bucket"
-  value       = aws_vpc.main.id
+    description = "ID of the VPC"
+    value = aws_vpc.vpc_main.id
 }
 
-## Public
-output "public_subnet_vpc_ids" {
-  description = "Domain name of the bucket"
-  value       = aws_subnet.public_kandula.*.id
+output "public_subnet_ids" {
+    description = "List with IDs of the public subnets"
+    value = aws_subnet.public_subnet.*.id
 }
 
-# ## Private
-# output "private_subnet_vpc_ids" {
-#   description = "Name (id) of the bucket"
-#   value       = aws_subnet.private_kandula.*.id
-# }
+output "private_subnet_ids" {
+    description = "List with IDs of the private subnets"
+    value = aws_subnet.private_subnet.*.id
+}

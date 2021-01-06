@@ -1,16 +1,30 @@
 
-variable "vpc_cidr" {
-    type = string
+# AWS Regions / Zones
+variable "aws_region" {
+  type = string
+  description = "AWS region which should be used"
 }
 
-variable "public_subnet_vpc" {
-    type = list
-}
-
+# Private subnets
 variable "private_subnet_vpc" {
-    type = list
+  description = "Create private  subnets"
+  type = list
 }
 
-variable "AZ" {
-    type = list
+# Public  subnets
+variable "public_subnet_vpc" {
+  description = "Create public  subnets"
+  type = list
+}
+
+# Resource naming
+variable "vpc_name" {
+  description = "Name of the VPC"
+  type = string
+}
+
+# Network details
+variable "cidr_network" {
+  type = string
+  description = "CIDR of the VPC"
 }

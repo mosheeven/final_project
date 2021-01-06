@@ -2,11 +2,11 @@ data "aws_availability_zones" "available"{
   state = "available"
 }
 
-module "network" {
+module "vpc" {
   source = "./modules/vpc"
-  
-  vpc_cidr = var.vpc_cidr
-  private_subnet_vpc = var.public_subnet_vpc
-  public_subnet_vpc = var.private_subnet_vpc
-  AZ = data.aws_availability_zones.available.names
+  aws_region = var.region
+  public_subnet_vpc = var.public_subnet_vpc
+  private_subnet_vpc = var.private_subnet_vpc
+  vpc_name = "kalandula-vpc"
+  cidr_network = var.vpc_cidr
 }
