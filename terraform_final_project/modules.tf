@@ -2,11 +2,37 @@ data "aws_availability_zones" "available"{
   state = "available"
 }
 
-module "network" {
+
+locals {
+  cluster_name = "opsschool-eks-${random_string.suffix.result}"
+}
+
+resource "random_string" "suffix" {
+  length  = 8
+  special = false
+}
+
+
+module "vpc" {
   source = "./modules/vpc"
-  
-  vpc_cidr = var.vpc_cidr
-  private_subnet_vpc = var.public_subnet_vpc
-  public_subnet_vpc = var.private_subnet_vpc
-  AZ = data.aws_availability_zones.available.names
+  aws_region = var.region
+  public_subnet_vpc = var.public_subnet_vpc
+  private_subnet_vpc = var.private_subnet_vpc
+  vpc_name = "kalandula-vpc"
+  cidr_network = var.vpc_cidr
+
+  tags = {
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
+  }
+
+  public_subnet_tags = {
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
+    "kubernetes.io/role/elb"                      = "1"
+  }
+
+  private_subnet_tags = {
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
+    "kubernetes.io/role/internal-elb"             = "1"
+  }
+
 }
