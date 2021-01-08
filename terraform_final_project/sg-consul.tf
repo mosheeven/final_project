@@ -1,7 +1,7 @@
 resource "aws_security_group" "kandula_consul" {
   name        = "kandula-consul"
   description = "Allow ssh & consul inbound traffic"
-  vpc_id = module.network.vpc_id
+  vpc_id = module.vpc.vpc_id
 
   ingress {
     from_port   = 0
