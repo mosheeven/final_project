@@ -4,6 +4,7 @@ module "eks" {
   cluster_version = "1.17"
   subnets         = module.vpc.private_subnet_ids
 
+
   tags = {
     Environment = "training"
     GithubRepo  = "terraform-aws-eks"
@@ -30,3 +31,4 @@ data "aws_eks_cluster" "cluster" {
 data "aws_eks_cluster_auth" "cluster" {
   name = module.eks.cluster_id
 }
+
