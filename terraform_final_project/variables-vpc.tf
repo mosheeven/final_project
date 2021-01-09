@@ -1,10 +1,10 @@
 variable "region" {
-    default = "us-east-2"
+    default = "us-east-1"
 }
 
 variable "key_name" {
   description = "name of ssh key to attach to hosts"
-  default = "moshe-east-2"
+  default = "moshe-us-east-1-private"
 }
 
 variable "vpc_cidr" {

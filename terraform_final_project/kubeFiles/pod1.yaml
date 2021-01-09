@@ -7,9 +7,9 @@ metadata:
     app: backend
 spec:
   containers:
-    - image: gcr.io/kuar-demo/kuard-amd64:1
+    - image: devmozes/kandula:latest
       name: kuard
       ports:
-        - containerPort: 8080
+        - containerPort: 5000
           name: http
           protocol: TCP
