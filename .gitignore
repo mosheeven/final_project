@@ -29,3 +29,8 @@ override.tf.json
 # example: *tfplan*
 .terraform.lock.hcl
 kubeconfig_*
+
+#private 
+*/.private/*
+private/*
+moshe-us-east-1-private

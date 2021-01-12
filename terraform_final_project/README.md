@@ -21,7 +21,7 @@ aws eks --region=us-east-1 update-kubeconfig --name <cluster_name>
 
 ## Connect Jenkins with eks
 - Copy ~/.kube/config to the kuberenetes credintiael in jenkins. 
-- Update /kubeFiles/aws-auth-cm.yaml, rolearn
+- Update /kubeFiles/aws-auth-cm.yaml.
 - Run kubectl apply -f /kubeFiles/aws-auth-cm.yaml 
 - Run build_kandula_project
 - Run deploy_kandula_app
