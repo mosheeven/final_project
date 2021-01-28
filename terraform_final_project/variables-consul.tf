@@ -7,7 +7,7 @@ variable "ami" {
 }
 
 variable "consul_server_count" {
-  default = 3
+  default = 1
 }
 
 variable "agent_count" {

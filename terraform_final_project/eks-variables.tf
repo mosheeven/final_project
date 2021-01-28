@@ -1,4 +1,4 @@
-variable "kubernetes_version" {
-  default = 1.18
-  description = "kubernetes version"
-}
+# variable "kubernetes_version" {
+#   default = 1.18
+#   description = "kubernetes version"
+# }
