@@ -1,0 +1,35 @@
+---
+# tasks file for consul
+- name: consul_agent_script_install
+  copy:
+    src: consul-agent.sh 
+    dest: /home/ubuntu
+    mode: '0755'
+- name: run script
+  command: sh /home/ubuntu/consul-agent.sh
+
+# - name: install service discovery 
+#   copy: 
+#     src: consul-jenkins-master-checks.sh
+#     dest: /home/ubuntu
+#     mode: '0755'
+#   tags:
+#     - tag_Name_Jenkins_Master
+
+# - name: run script
+#   command: sh consul-jenkins-master-checks.sh
+#   tags: 
+#     - tag_Name_Jenkins_Master
+
+# - name: install service discovery 
+#   copy: 
+#     src: consul-jenkins-slave-checks.sh
+#     dest: /home/ubuntu
+#     mode: '0755'
+#   tags:
+#     - tag_Name_Jenkins_Slave
+
+# - name: run script
+#   command: sh consul-jenkins-slave-checks.sh
+#   tags: 
+#     - tag_Name_Jenkins_Slave

@@ -1,0 +1,10 @@
+---
+# tasks file for consul
+- name: consul_server_script_install
+  copy:
+    src: consul-server.sh 
+    dest: /home/ubuntu
+    mode: '0755'
+- name: run script
+  command: sh /home/ubuntu/consul-server.sh
+

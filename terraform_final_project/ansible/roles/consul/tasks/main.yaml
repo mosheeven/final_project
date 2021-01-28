@@ -1,0 +1,7 @@
+- include_tasks: consul_agent.yaml
+  tags:
+    - tag_consul_agent_true
+
+- include_tasks: consul_server.yaml
+  tags:
+    - tag_consul_server_true

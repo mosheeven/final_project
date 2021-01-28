@@ -9,6 +9,7 @@ PRIVATE_IP=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)
 
 echo "Installing dependencies..."
 apt-get -qq update &>/dev/null
+sleep 1 
 apt-get -yqq install unzip dnsmasq &>/dev/null
 
 echo "Configuring dnsmasq..."
@@ -50,10 +51,8 @@ tee /etc/consul.d/config.json > /dev/null <<EOF
   "disable_update_check": true,
   "leave_on_terminate": true,
   "retry_join": ["provider=aws tag_key=consul_server tag_value=true"],
-  "server": true,
-  "bootstrap_expect": 1,
-  "ui": true,
-  "client_addr": "0.0.0.0"
+  "enable_script_checks": true,
+  "server": false
 }
 EOF
 
