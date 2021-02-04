@@ -52,12 +52,12 @@ tee /etc/consul.d/config.json > /dev/null <<EOF
   "retry_join": ["provider=aws tag_key=consul_server tag_value=true"],
   {% if hostvars[inventory_hostname].tags.consul_server == 'true' %}
   "server": true,
-  "bootstrap_expect": 1,
+  "bootstrap_expect": 2,
   "ui": true,
   "client_addr": "0.0.0.0"
   {% else %}
   "enable_script_checks": true,
-  "server": false,
+  "server": false
   {% endif %}
 }
 EOF
