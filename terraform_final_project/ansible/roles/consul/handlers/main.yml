@@ -1,2 +1,13 @@
 ---
 # handlers file for consul
+- name: Restart apache
+  ansible.builtin.service:
+    name: dnsmasq
+    state: restarted
+  listen: "restart dnsmask service"
+
+- name: Restart apache
+  ansible.builtin.service:
+    name: systemd-resolved
+    state: restarted
+  listen: "restart resolved service"
