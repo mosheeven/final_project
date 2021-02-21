@@ -1,25 +1,4 @@
 ---
-# - name: copy consul template
-#   template:
-#     dest: /home/ubuntu/consul-server.sh
-#     src: consul-server.j2
-#     mode: '0755'
-
-# - name: run script
-#   command: /home/ubuntu/consul-server.sh
-
-# - name: get the machine private ip
-#   shell:
-#     cmd: curl http://169.254.169.254/latest/meta-data/local-ipv4
-#   register: private_ip
-
-# - set_fact:
-#     private_ip: "{{ private_ip.stdout }}"
-
-# - name: apt update
-#   apt:
-#     update_cache: yes
-
 - name: Install unzip and dnsmask
   apt:
     pkg:
@@ -84,7 +63,7 @@
     mode: '0755'
   notify: "restart consul service"
 
-- name: Copy dnsmask conf file
+- name: Copy consul.service conf file
   ansible.builtin.copy:
     src: consul.service
     dest: /etc/systemd/system/consul.service
