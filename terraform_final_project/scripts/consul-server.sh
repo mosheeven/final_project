@@ -59,6 +59,7 @@ EOF
 
 # Create user & grant ownership of folders
 useradd consul
+sleep 1
 chown -R consul:consul /opt/consul /etc/consul.d /run/consul
 
 

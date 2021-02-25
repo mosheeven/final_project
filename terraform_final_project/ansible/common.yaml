@@ -1,0 +1,10 @@
+- name: kandula_playbook
+  hosts: all
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - consul
+    - node-exporter
+    - filebeat
