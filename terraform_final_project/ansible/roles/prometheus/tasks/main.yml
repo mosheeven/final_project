@@ -9,3 +9,13 @@
   shell:
     cmd: "docker-compose up -d"
     chdir: /home/ubuntu/compose
+
+- name: copy consul-prometheus-grafana template
+  template:
+    dest: /etc/consul.d/prometheus.json
+    src: prometheus.json.j2
+    force: yes
+    owner: consul
+    group: consul
+    mode: '0755'
+  notify: "restart consul service"
