@@ -1,6 +1,6 @@
 filebeat.inputs:
   - type: log
-    enabled: false
+    enabled: true
     paths:
       - /var/log/auth.log
 filebeat.modules:
@@ -8,11 +8,11 @@ filebeat.modules:
     syslog:
       enabled: false
     auth:
-      enabled: false
+      enabled: true
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
-  reload.enabled: false
-setup.dashboards.enabled: false
+  reload.enabled: true
+setup.dashboards.enabled: true
 setup.template.name: "filebeat"
 setup.template.pattern: "filebeat-*"
 setup.template.settings:
