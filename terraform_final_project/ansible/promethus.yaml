@@ -5,5 +5,5 @@
   become_user: root
   become_method: sudo
   roles:
-    - ansible-role-docker
+    - docker-role
     - prometheus
