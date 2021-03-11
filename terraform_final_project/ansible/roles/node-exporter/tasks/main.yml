@@ -7,3 +7,10 @@
 
 - name: run script
   command: /home/ubuntu/inst_node_exporter.sh
+
+- name: copy node_exporter template
+  copy:
+    dest: /etc/consul.d/node_exporter.json
+    src: node_exporter.json
+    mode: '0755'
+  notify: restart consul service
