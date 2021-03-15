@@ -1,10 +1,9 @@
 - name: kandula_playbook
-  hosts: tag_kandula_app_true
+  hosts: tag_jenkins_true
   remote_user: ubuntu
   become: yes
   become_user: root
   become_method: sudo
   roles:
-    - consul
-    - node-exporter
-    - filebeat
+    # - docker-role
+    - jenkins-role

@@ -1,0 +1,19 @@
+- name: Print massage from master
+  ansible.builtin.debug:
+    msg:
+    - "Running on {{ hostvars[inventory_hostname].tags.Name }}"
+
+- name: Add an Apt signing key, uses whichever key is at the URL
+  ansible.builtin.apt_key:
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+    state: present
+
+- name: Add deb to the sources.list.d
+  ansible.builtin.shell: "echo deb https://pkg.jenkins.io/debian-stable binary/ > \
+    /etc/apt/sources.list.d/jenkins.list"
+  
+- name: Install jenkins pkg
+  apt:
+    pkg:
+    - jenkins
+    update_cache: yes

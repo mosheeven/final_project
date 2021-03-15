@@ -15,7 +15,7 @@ resource "aws_security_group" "kandula_consul" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.cidr_block
     description = "Allow ssh from the world"
   }
 
@@ -23,7 +23,7 @@ resource "aws_security_group" "kandula_consul" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.cidr_block
     description = "Allow ssh from the world"
   }
 
@@ -32,7 +32,15 @@ resource "aws_security_group" "kandula_consul" {
     from_port   = 8500
     to_port     = 8500
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.cidr_block
+    description = "Allow consul UI access from the world"
+  }
+    
+  ingress {
+    from_port   = 9100
+    to_port     = 9100
+    protocol    = "tcp"
+    cidr_blocks = var.cidr_block
     description = "Allow consul UI access from the world"
   }
 
