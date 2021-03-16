@@ -21,7 +21,7 @@ resource "aws_instance" "jenkins_server_consul" {
 resource "aws_instance" "jenkins_slave_consul" {
   count = var.jenkins_slave_count
   ami           = lookup(var.ami, var.region)
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   key_name      = var.key_name
 
   iam_instance_profile   = aws_iam_instance_profile.consul-join.name

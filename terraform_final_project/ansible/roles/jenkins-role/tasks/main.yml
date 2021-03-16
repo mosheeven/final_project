@@ -11,5 +11,5 @@
 - include_tasks: jenkins-master.yml
   when:  ansible_ec2_user_data == "jenkins_master"
 
-- include_tasks: jenkins-slave.yml
-  when: ansible_ec2_user_data == "jenkins_slave"
+# - include_tasks: jenkins-slave.yml
+#   when: ansible_ec2_user_data == "jenkins_slave"
