@@ -1,0 +1,3 @@
+# run the following after consul is running ans helm in installed
+kubectl create secret generic consul-gossip-encryption-key --from-literal=key="uDBV4e+LbFW3019YKPxIrg=="
+helm install consul hashicorp/consul -f values.yaml
