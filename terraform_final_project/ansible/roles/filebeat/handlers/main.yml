@@ -4,4 +4,4 @@
   ansible.builtin.service:
     name: filebeat
     state: restarted
-  listen: "restart filebeat service" 
+  listen: "restart filebeat service"
