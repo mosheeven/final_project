@@ -13,7 +13,20 @@ resource "aws_security_group" "all_worker_mgmt" {
       "192.168.0.0/16",
     ]
   }
-
+  ingress {
+    from_port   = 9100
+    to_port     = 9100
+    protocol    = "tcp"
+    cidr_blocks = var.cidr_block
+    description = "prometheus"
+  }
+  ingress {
+    from_port   = 8500
+    to_port     = 8500
+    protocol    = "tcp"
+    cidr_blocks = var.cidr_block
+    description = "prometheus"
+  }
   ingress {
     from_port   = 8301
     to_port     = 8301
@@ -21,6 +34,7 @@ resource "aws_security_group" "all_worker_mgmt" {
     cidr_blocks = var.cidr_block
     description = "Lan"
   }
+
     ingress {
     from_port   = 8302
     to_port     = 8302

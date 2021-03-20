@@ -1,3 +1,16 @@
 # run the following after consul is running ans helm in installed
 kubectl create secret generic consul-gossip-encryption-key --from-literal=key="uDBV4e+LbFW3019YKPxIrg=="
-helm install consul hashicorp/consul -f values.yaml
+helm install consul hashicorp/consul -f values_consul.yaml
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install my-release bitnami/node-exporter -f values_node-exporter.yaml
+
+
+dig -t a <service-cluster-default>.service.opsschool.consul
+
+kubectl -n kube-system edit configmap coredns -o yaml
+
+    consul {
+        errors
+        cache 30
+        forward . 172.20.190.13
+    }
