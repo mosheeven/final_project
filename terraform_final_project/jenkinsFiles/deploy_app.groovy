@@ -1,4 +1,4 @@
-node('master'){
+node('slave1'){
     stage('clone git'){
         git branch: 'master', changelog: false, credentialsId: 'github', poll: false, url: 'git@github.com:mosheeven/final_project.git'
     }
