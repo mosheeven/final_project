@@ -9,8 +9,7 @@ node('slave1'){
         
             withCredentials([kubeconfigFile(credentialsId: 'KubeAccess', variable: 'KUBECONFIG')]) {
                 dir('final_project/terraform_final_project/kubeFiles') {
-                    sh '
-                    export KUBECONFIG=\${KUBECONFIG};
+                    sh 'export KUBECONFIG=\${KUBECONFIG}
                     kubectl get pods
                     echo "install helm"
                     kubectl create secret generic consul-gossip-encryption-key --from-literal=key="uDBV4e+LbFW3019YKPxIrg=="
