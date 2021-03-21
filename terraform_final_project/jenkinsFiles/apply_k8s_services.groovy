@@ -7,9 +7,9 @@ node('slave1'){
 
     stage("Install Cosnul on Kubernetes") {
             withCredentials([kubeconfigFile(credentialsId: 'kube', variable: 'KUBECONFIG')]) {
-            sh "
+            sh '
             export KUBECONFIG=\${KUBECONFIG}
             kubectl get pods
-            "
+            '
     }
 }
