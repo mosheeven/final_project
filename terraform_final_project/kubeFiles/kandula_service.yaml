@@ -14,8 +14,7 @@ spec:
       targetPort: 5000
       nodePort: 30037
       protocol: TCP
-    - name: http
+    - name: metrics
       port: 9100
       targetPort: 9222
-      nodePort: 30037
       protocol: TCP
