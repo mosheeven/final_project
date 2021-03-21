@@ -14,7 +14,7 @@ node('slave1'){
                     kubectl get pods
                     echo "Install consul"
                     helm delete consul
-                    kubectl delete secret generic consul-gossip-encryption-key
+                    kubectl delete secret consul-gossip-encryption-key
 
                     echo "delete coredns"
                     kubectl delete -f coredns.yaml
