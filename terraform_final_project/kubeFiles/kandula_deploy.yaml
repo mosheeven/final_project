@@ -22,8 +22,8 @@ spec:
         topologyKey: zone
         whenUnsatisfiable: DoNotSchedule
         labelSelector:
-        matchLabels:
-          app: backend    
+          matchLabels:
+            app: kalandula   
       containers:
       - name: kandula
         image: devmozes/kandula:latest
@@ -31,5 +31,5 @@ spec:
         - containerPort: 5000
           name: http
           protocol: TCP
-      nodeSelector:
-        app: kandula
+      # nodeSelector:
+      #   app: kandula
