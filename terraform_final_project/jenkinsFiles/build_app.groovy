@@ -9,6 +9,10 @@ node('slave1'){
     stage('build docker image'){
         customImage = docker.build("devmozes/kandula:latest")
     }
+
+    stage('scan image with trivy'){
+        sh "trivy image --timeout 5m --exit-code=0 --severity CRITICAL,HIGH,UNKNOWN,LOW,MEDIUM $customImage.id"
+    }
     
     stage('run docker'){
        container = customImage.run('-p 5000:5000')
