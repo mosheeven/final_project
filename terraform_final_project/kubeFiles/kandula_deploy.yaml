@@ -17,13 +17,13 @@ spec:
         app: backend
         env: prod
     spec:
-      topologySpreadConstraints:
-      - maxSkew: 1
-        topologyKey: zone
-        whenUnsatisfiable: DoNotSchedule
-        labelSelector:
-          matchLabels:
-            app: backend   
+      # topologySpreadConstraints:
+      # - maxSkew: 1
+      #   topologyKey: zone
+      #   whenUnsatisfiable: DoNotSchedule
+      #   labelSelector:
+      #     matchLabels:
+      #       app: backend   
       containers:
       - name: kandula
         image: devmozes/kandula:latest
