@@ -7,9 +7,11 @@ node('slave1'){
 
     stage("Install Cosnul on Kubernetes") {
         
-            withCredentials([kubeconfigFile(credentialsId: 'KubeAccess')]) {
+            withCredentials([kubeconfigFile(credentialsId: 'KubeAccess', variable: 'KUBECONFIG')]) {
                 dir('final_project/terraform_final_project/kubeFiles') {
-                    sh 'kubectl get pods' 
+                    sh '''
+                    kubectl get pods
+                    '''
                 }   
         }
     }
