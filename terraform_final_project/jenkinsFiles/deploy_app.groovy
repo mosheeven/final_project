@@ -4,6 +4,6 @@ node('master'){
     }
     
     stage('deploy app'){
-        kubernetesDeploy configs: 'terraform_final_project/kubeFiles/pod-svc.yaml, terraform_final_project/kubeFiles/pod1.yaml', kubeConfig: [path: ''], kubeconfigId: 'KubeAccess', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+        kubernetesDeploy configs: 'terraform_final_project/kubeFiles/kandula_service.yaml, terraform_final_project/kubeFiles/kandula_deploy.yaml', kubeConfig: [path: ''], kubeconfigId: 'KubeAccess', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
     }
 }

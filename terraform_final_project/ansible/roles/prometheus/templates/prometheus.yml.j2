@@ -45,3 +45,17 @@ scrape_configs:
       - source_labels: ['__meta_consul_dc']
         target_label: 'consul_dc_name'     
 
+  - job_name: 'k8s-node_exporter'
+    consul_sd_configs:
+    - server: {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:8500
+      services:
+        - 'k8s-node-exporter-default'
+    relabel_configs:
+      - source_labels: ['__address__']
+        target_label: '__address__'
+        regex: '(.*):.*'
+        replacement: $1:9100
+      - source_labels: ['__meta_consul_node']
+        target_label: 'consul_node_name'
+      - source_labels: ['__meta_consul_dc']
+        target_label: 'consul_dc_name'
