@@ -23,7 +23,7 @@ spec:
         whenUnsatisfiable: DoNotSchedule
         labelSelector:
         matchLabels:
-          foo: bar    
+          app: backend    
       containers:
       - name: kandula
         image: devmozes/kandula:latest
