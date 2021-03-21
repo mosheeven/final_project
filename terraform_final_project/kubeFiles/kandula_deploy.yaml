@@ -27,3 +27,5 @@ spec:
         - containerPort: 5000
           name: http
           protocol: TCP
+      nodeSelector:
+        app: kandula
