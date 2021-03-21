@@ -1169,7 +1169,7 @@ syncCatalog:
   #
   # @type: string
   nodeSelector: |
-    beta.kubernetes.io/arch: amd64
+    app: kandula
 
   # Affinity Settings
   # This should be a multi-line string matching the affinity object
