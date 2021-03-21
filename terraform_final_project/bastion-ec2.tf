@@ -18,9 +18,9 @@ resource "aws_instance" "bastion" {
   }
 }
 
-resource "aws_security_group" "jenkins_kandula" {
-  name = var.jenkins_default_name
-  description = "Allow Jenkins inbound traffic"
+resource "aws_security_group" "bastion_kandula" {
+  name = "bastion-kandula"
+  description = "Allow ssh inbound traffic"
   vpc_id = module.vpc.vpc_id
 
   ingress {
