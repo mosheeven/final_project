@@ -13,14 +13,14 @@ node('slave1'){
                     export KUBECONFIG=\${KUBECONFIG}
                     kubectl get pods
                     echo "Install consul"
-                    helm delete consul hashicorp/consul
+                    helm delete consul
                     kubectl delete secret generic consul-gossip-encryption-key
 
                     echo "delete coredns"
                     kubectl delete -f coredns.yaml
 
                     echo "delete node exporter"
-                    helm delete k8s bitnami/node-exporter -f values_node-exporter.yaml  
+                    helm delete k8s 
 
                     echo "delete filebeat"
                     kubectl delete -f filebeat.yaml
