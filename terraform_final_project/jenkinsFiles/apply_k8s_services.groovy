@@ -8,8 +8,9 @@ node('slave1'){
     stage("Install Cosnul on Kubernetes") {
         
             withCredentials([kubeconfigFile(credentialsId: 'KubeAccess', variable: 'KUBECONFIG')]) {
-                dir('final_project/terraform_final_project/kubeFiles') {
+                dir('final_project/terraform_final_project/kubeFiles/') {
                     sh '''
+                    ls
                     export KUBECONFIG=\${KUBECONFIG}
                     kubectl get pods
                     echo "Install consul"
