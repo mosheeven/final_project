@@ -3,7 +3,7 @@ node('master'){
     def container
     
     stage('clone git repo'){
-        git branch: 'session3', changelog: false, credentialsId: 'github', poll: false, url: 'git@github.com:mosheeven/kandula_assignment.git'
+        git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'git@github.com:mosheeven/kandula_assignment.git'
     }
     
     stage('build docker image'){
