@@ -6,7 +6,6 @@ spec:
   selector:
     app: backend
     env: prod
-    ver: "1"
   type: LoadBalancer
   ports:
     - name: http
