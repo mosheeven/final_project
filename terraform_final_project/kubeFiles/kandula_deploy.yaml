@@ -5,21 +5,25 @@ metadata:
   labels:
     app: backend
     env: prod
-    ver: "1"
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: backend
       env: prod
-      ver: "1"
   template:
     metadata:
       labels:
         app: backend
         env: prod
-        ver: "1"
     spec:
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: zone
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+        matchLabels:
+          foo: bar    
       containers:
       - name: kandula
         image: devmozes/kandula:latest
