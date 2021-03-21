@@ -14,6 +14,7 @@ node('slave1'){
                     kubectl get pods
                     echo "Install consul"
                     kubectl create secret generic consul-gossip-encryption-key --from-literal=key="uDBV4e+LbFW3019YKPxIrg=="
+                    helm repo add hashicorp https://helm.releases.hashicorp.com
                     helm install consul hashicorp/consul -f values_consul.yaml
 
                     echo "apply changes for coredns"
