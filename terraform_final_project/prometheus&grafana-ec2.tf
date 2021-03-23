@@ -6,8 +6,8 @@ resource "aws_instance" "promethus_server" {
 
   iam_instance_profile   = aws_iam_instance_profile.consul-join.name
   vpc_security_group_ids = [aws_security_group.prometheus_grafana.id, aws_security_group.kandula_consul.id]
-  subnet_id = element(module.vpc.public_subnet_ids, count.index)
-  associate_public_ip_address = true
+  subnet_id = element(module.vpc.private_subnet_ids, count.index)
+  # associate_public_ip_address = true
   tags = {
     Name = "promethus_grafana-${count.index+1}"
     consul_server = "false"
