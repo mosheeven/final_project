@@ -7,8 +7,8 @@ resource "aws_instance" "elasticsearch_kibana" {
   iam_instance_profile   = aws_iam_instance_profile.consul-join.name
 
   vpc_security_group_ids = [module.security-group.this_security_group_id, aws_security_group.kandula_consul.id]
-  subnet_id = element(module.vpc.public_subnet_ids, count.index)
-  associate_public_ip_address = true
+  subnet_id = element(module.vpc.private_subnet_ids, count.index)
+
   user_data = "elasticsearch_kibana"
   tags = {
     Name = "elasticsearch_kibana-${count.index+1}"

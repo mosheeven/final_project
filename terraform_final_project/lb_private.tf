@@ -10,7 +10,7 @@ resource "aws_lb" "private_services" {
   }
 }
 
-### listener rule
+### listener rule - prometheus
 
 resource "aws_lb_target_group" "Prometheus" {
   name        = "Prometheus"
@@ -45,7 +45,7 @@ resource "aws_lb_listener" "Prometheus" {
 
 
 
-### listener rule
+### listener rule - grafana
 resource "aws_lb_target_group" "Grafana" {
   name        = "Grafana"
   port        = 3000
@@ -78,7 +78,7 @@ resource "aws_lb_listener" "Grafana" {
 }
 
 
-### listener rule
+### listener rule - kibana
 resource "aws_lb_target_group" "Kibana" {
   name        = "Kibana"
   port        = 5601
@@ -99,7 +99,7 @@ resource "aws_lb_target_group_attachment" "Kibana" {
   port             = 5601
 }
 
-resource "aws_lb_listener" "consul_server" {
+resource "aws_lb_listener" "Kibana" {
   load_balancer_arn = aws_lb.private_services.arn
   port              = "5601"
   protocol          = "HTTP"
@@ -111,7 +111,7 @@ resource "aws_lb_listener" "consul_server" {
 }
 
 
-### listener rule
+### listener rule - consul 
 resource "aws_lb_target_group" "consul_server" {
   name        = "consul"
   port        = 8500
@@ -143,7 +143,7 @@ resource "aws_lb_listener" "consul_server" {
   }
 }
 
-### listener rule
+### listener rule - jenkins
 resource "aws_lb_target_group" "jenkins" {
   name        = "jenkins"
   port        = 8080
@@ -164,7 +164,7 @@ resource "aws_lb_target_group_attachment" "jenkins" {
   port             = 8080
 }
 
-resource "aws_lb_listener" "consul_server" {
+resource "aws_lb_listener" "jenkins" {
   load_balancer_arn = aws_lb.private_services.arn
   port              = "8080"
   protocol          = "HTTP"

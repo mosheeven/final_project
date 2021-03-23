@@ -6,8 +6,8 @@ resource "aws_instance" "jenkins_server_consul" {
 
   iam_instance_profile   = aws_iam_instance_profile.consul-join.name
   vpc_security_group_ids = [aws_security_group.jenkins_kandula.id, aws_security_group.kandula_consul.id]
-  subnet_id = element(module.vpc.public_subnet_ids, count.index)
-  associate_public_ip_address = true
+  subnet_id = element(module.vpc.private_subnet_ids, count.index)
+
   user_data = "jenkins_master"
   tags = {
     Name = "jenkins-master-kandula-${count.index+1}"
@@ -26,8 +26,8 @@ resource "aws_instance" "jenkins_slave_consul" {
 
   iam_instance_profile   = aws_iam_instance_profile.consul-join.name
   vpc_security_group_ids = [aws_security_group.kandula_consul.id]
-  subnet_id = element(module.vpc.public_subnet_ids, count.index)
-  associate_public_ip_address = true
+  subnet_id = element(module.vpc.private_subnet_ids, count.index)
+  
   user_data = "jenkins_slave"
   tags = {
     Name = "jenkins-slave-kandula-${count.index+1}"
