@@ -14,7 +14,7 @@ kubectl edit configmap coredns -n kube-system
     consul {
         errors
         cache 30
-        forward . 172.20.190.13
+        forward . 172.20.101.158
     }
 # vertify with 
 k apply -f verifyConsulDns.yaml
