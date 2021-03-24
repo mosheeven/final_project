@@ -42,5 +42,7 @@ resource "aws_security_group" "bastion_kandula" {
   }
   tags = {
     Name = "bastion-sg-kandula"
+    consul_server = "false"
+    kandula_app = "true"
   }
 }

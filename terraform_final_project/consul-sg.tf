@@ -27,7 +27,6 @@ resource "aws_security_group" "kandula_consul" {
     description = "Allow ssh from the world"
   }
 
-
   ingress {
     from_port   = 8500
     to_port     = 8500

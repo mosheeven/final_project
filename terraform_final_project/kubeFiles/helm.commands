@@ -5,7 +5,7 @@ kubectl create secret generic consul-gossip-encryption-key --from-literal=key="u
 helm repo add hashicorp https://helm.releases.hashicorp.com
 helm install consul hashicorp/consul -f values_consul.yaml
 
-# run configmap for consul
+# run configmap for consul after chagne the svc ip.
 kubectl apply -f coredns.yaml 
 # validate 
 kubectl get configmap kube-dns -n kube-system -o yaml
