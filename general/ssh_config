@@ -1,0 +1,13 @@
+Host Bastion
+  HostName <bastion_IP>
+  IdentityFile <key>
+  User ubuntu
+  StrictHostKeyChecking no
+  ServerAliveInterval 10
+
+Host 10.0.*.*
+  IdentityFile <key>
+  User ubuntu
+  Port 22
+  StrictHostKeyChecking no
+  Proxycommand ssh -q Bastion -W %h:%p
